@@ -1,0 +1,36 @@
+{
+    "attributes" : {
+        "subject" : {
+           "random-id" : 
+            {
+                "type" : "string",
+                "value" : "spHXWC1K9SrgpZMVZ2a4q8KkWECVEakyVSxxxAFAQcPEFo8TpX6cu2J0EcMqJxdc",
+                "xacmlns" : "false"
+            }
+        },
+        "resource" : {
+            "archetype-id" : {
+                "type" : "string",
+                "value" : "problem_list",
+                "xacmlns" : "false"
+            },
+            "ehr-id":
+              {
+                  "type" : "string",
+                  "value" : "a0977522-7a79-463c-9b0e-2bf42c33b7e0",
+                  "xacmlns" : "false"
+              }
+        },
+        "action" : {
+            "action-id" : {
+                "type" : "string",
+                "value" : "READ",
+                "xacmlns" : "true"   
+            }
+        },
+        "environment" : {}
+    },
+
+    "composition": {
+    }
+}

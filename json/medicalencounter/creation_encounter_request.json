@@ -1,0 +1,176 @@
+{
+    "attributes" : {
+        "subject" : {
+           "random-id" : 
+            {
+                "type" : "string",
+                "value" : "hgInN8DPSE91kMrueR7QSPJ99MrrEY-utWCNSMHbgHpn6FwivtZSE8UhfN5zKgHp",
+                "xacmlns" : "false"
+            }
+        },
+        "resource" : {
+            "archetype-id" : {
+                "type" : "string",
+                "value" : "encounter",
+                "xacmlns" : "false"
+            },
+            "ehr-id":
+              {
+                  "type" : "string",
+                  "value" : "a0977522-7a79-463c-9b0e-2bf42c33b7e0",
+                  "xacmlns" : "false"
+              }
+        },
+        "action" : {
+            "action-id" : {
+                "type" : "string",
+                "value" : "CREATE",
+                "xacmlns" : "true"   
+            }
+        },
+        "environment" : {}
+    },
+
+    "composition": {
+        "_type": "COMPOSITION",
+        "name": {
+            "_type": "DV_TEXT",
+            "value": "Encounter"
+        },
+        "archetype_details": {
+            "archetype_id": {
+                "_type": "ARCHETYPE_ID",
+                "value": "openEHR-EHR-COMPOSITION.encounter.v1"
+            },
+            "template_id": {
+                "_type": "TEMPLATE_ID",
+                "value": "Encounter"
+            },
+            "rm_version": "1.0.2"
+        },
+        "archetype_node_id": "openEHR-EHR-COMPOSITION.encounter.v1",
+        "language": {
+            "terminology_id": {
+                "_type": "TERMINOLOGY_ID",
+                "value": "ISO_639-1"
+            },
+            "code_string": "it"
+        },
+        "territory": {
+            "terminology_id": {
+                "_type": "TERMINOLOGY_ID",
+                "value": "ISO_3166-1"
+            },
+            "code_string": "UY"
+        },
+        "category": {
+            "value": "event",
+            "defining_code": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "openehr"
+                },
+                "code_string": "433"
+            }
+        },
+        "composer": {
+            "_type": "PARTY_IDENTIFIED",
+            "external_ref": {
+                "id": {
+                    "_type": "HIER_OBJECT_ID",
+                    "value": "da99290e-fa93-4957-a5e4-ff12e9816d0d"
+                },
+                "namespace": "DEMOGRAPHIC",
+                "type": "PERSON"
+            },
+            "name": "Dr. Yamamoto"
+        },
+        "context": {
+            "start_time": {
+                "value": "2021-11-18T01:19:52.901+01:00"
+            },
+            "setting": {
+                "value": "home",
+                "defining_code": {
+                    "terminology_id": {
+                        "_type": "TERMINOLOGY_ID",
+                        "value": "openehr"
+                    },
+                    "code_string": "225"
+                }
+            }
+        },
+        "content": [
+            {
+                "_type": "EVALUATION",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Reason for encounter"
+                },
+                "archetype_details": {
+                    "archetype_id": {
+                        "_type": "ARCHETYPE_ID",
+                        "value": "openEHR-EHR-EVALUATION.reason_for_encounter.v1"
+                    },
+                    "template_id": {
+                        "_type": "TEMPLATE_ID",
+                        "value": "Encounter"
+                    },
+                    "rm_version": "1.0.2"
+                },
+                "archetype_node_id": "openEHR-EHR-EVALUATION.reason_for_encounter.v1",
+                "language": {
+                    "terminology_id": {
+                        "_type": "TERMINOLOGY_ID",
+                        "value": "ISO_639-1"
+                    },
+                    "code_string": "it"
+                },
+                "encoding": {
+                    "terminology_id": {
+                        "_type": "TERMINOLOGY_ID",
+                        "value": "IANA_character-sets"
+                    },
+                    "code_string": "UTF-8"
+                },
+                "subject": {
+                    "_type": "PARTY_SELF"
+                },
+                "data": {
+                    "_type": "ITEM_TREE",
+                    "name": {
+                        "_type": "DV_TEXT",
+                        "value": "Tree"
+                    },
+                    "archetype_node_id": "at0001",
+                    "items": [
+                        {
+                            "_type": "ELEMENT",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Contact type"
+                            },
+                            "archetype_node_id": "at0002",
+                            "value": {
+                                "_type": "DV_TEXT",
+                                "value": "Encounter for problem"
+                            }
+                        },
+                        {
+                            "_type": "ELEMENT",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Presenting problem"
+                            },
+                            "archetype_node_id": "at0004",
+                            "value": {
+                                "_type": "DV_TEXT",
+                                "value": "HBP - High blood pressure"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
