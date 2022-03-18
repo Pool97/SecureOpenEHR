@@ -1,0 +1,615 @@
+{
+    "_type": "COMPOSITION",
+    "name": {
+        "_type": "DV_TEXT",
+        "value": "Adverse reaction list"
+    },
+    "archetype_details": {
+        "archetype_id": {
+            "_type": "ARCHETYPE_ID",
+            "value": "openEHR-EHR-COMPOSITION.adverse_reaction_list.v1"
+        },
+        "template_id": {
+            "_type": "TEMPLATE_ID",
+            "value": "Allergy List"
+        },
+        "rm_version": "1.0.2"
+    },
+    "archetype_node_id": "openEHR-EHR-COMPOSITION.adverse_reaction_list.v1",
+    "language": {
+        "terminology_id": {
+            "_type": "TERMINOLOGY_ID",
+            "value": "ISO_639-1"
+        },
+        "code_string": "it"
+    },
+    "territory": {
+        "terminology_id": {
+            "_type": "TERMINOLOGY_ID",
+            "value": "ISO_3166-1"
+        },
+        "code_string": "UY"
+    },
+    "category": {
+        "value": "event",
+        "defining_code": {
+            "terminology_id": {
+                "_type": "TERMINOLOGY_ID",
+                "value": "openehr"
+            },
+            "code_string": "433"
+        }
+    },
+    "composer": {
+        "_type": "PARTY_IDENTIFIED",
+        "external_ref": {
+            "id": {
+                "_type": "HIER_OBJECT_ID",
+                "value": "8f50095c-a977-4386-87e1-e25caea5238b"
+            },
+            "namespace": "DEMOGRAPHIC",
+            "type": "PERSON"
+        },
+        "name": "Dr. House"
+    },
+    "context": {
+        "start_time": {
+            "value": "2021-11-30T11:05:03.536+01:00"
+        },
+        "setting": {
+            "value": "home",
+            "defining_code": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "openehr"
+                },
+                "code_string": "225"
+            }
+        }
+    },
+    "content": [
+        {
+            "_type": "EVALUATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Adverse reaction risk"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "_type": "ARCHETYPE_ID",
+                    "value": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1"
+                },
+                "template_id": {
+                    "_type": "TEMPLATE_ID",
+                    "value": "Allergy List"
+                },
+                "rm_version": "1.0.2"
+            },
+            "archetype_node_id": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1",
+            "language": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "it"
+            },
+            "encoding": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "UTF-8"
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "protocol": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Tree"
+                },
+                "archetype_node_id": "at0042",
+                "items": [
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Last updated"
+                        },
+                        "archetype_node_id": "at0062",
+                        "value": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2021-11-30T11:05:04.446+01:00"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Supporting clinical record information"
+                        },
+                        "archetype_node_id": "at0047",
+                        "value": {
+                            "_type": "DV_EHR_URI",
+                            "value": "ehr://cabolabs.com"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Reaction reported?"
+                        },
+                        "archetype_node_id": "at0044",
+                        "value": {
+                            "_type": "DV_BOOLEAN",
+                            "value": true
+                        }
+                    },
+                    {
+                        "_type": "CLUSTER",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Report summary"
+                        },
+                        "archetype_node_id": "at0099",
+                        "items": [
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Date of report"
+                                },
+                                "archetype_node_id": "at0125",
+                                "value": {
+                                    "_type": "DV_DATE_TIME",
+                                    "value": "2021-11-30T11:05:04.450+01:00"
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Report comment"
+                                },
+                                "archetype_node_id": "at0048",
+                                "value": {
+                                    "_type": "DV_TEXT",
+                                    "value": "LCWTfvVw.LzDXVmYkDXyfbwCygMwnZYUidBz,bjdbxDEVQRzPPNDvvOSXyrcwWMOKCrCwVPBYercsqTpflddbwExmbZTsy,BNSbzyQAVvJ ppEWDSoAe,zakKLYqRMzIWnsdysDjWivBvkwAZhGrhMuCDqkdpwwpTqmSNUuxrIqKThwPrCYHbKeoFh.F,ZuhZgXUJ.sCNmDhjqPPAsnmFcT.MlRRaLZIjvoEzUsFa.PWZqtMOlSqjxzX.EoRTnpBJpGqobzyMwpyfzOBYoftdt WZovsdOK,oxgZtGRAeNMa"
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Adverse reaction report"
+                                },
+                                "archetype_node_id": "at0045",
+                                "value": {
+                                    "_type": "DV_URI",
+                                    "value": "https://cabolabs.com"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "data": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Tree"
+                },
+                "archetype_node_id": "at0001",
+                "items": [
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Substance"
+                        },
+                        "archetype_node_id": "at0002",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": "Lisinopril"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Status"
+                        },
+                        "archetype_node_id": "at0063",
+                        "value": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Confirmed",
+                            "defining_code": {
+                                "terminology_id": {
+                                    "_type": "TERMINOLOGY_ID",
+                                    "value": "local"
+                                },
+                                "code_string": "at0065"
+                            }
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Criticality"
+                        },
+                        "archetype_node_id": "at0101",
+                        "value": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Low",
+                            "defining_code": {
+                                "terminology_id": {
+                                    "_type": "TERMINOLOGY_ID",
+                                    "value": "local"
+                                },
+                                "code_string": "at0102"
+                            }
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Category"
+                        },
+                        "archetype_node_id": "at0120",
+                        "value": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Medication",
+                            "defining_code": {
+                                "terminology_id": {
+                                    "_type": "TERMINOLOGY_ID",
+                                    "value": "local"
+                                },
+                                "code_string": "at0122"
+                            }
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Onset of last reaction"
+                        },
+                        "archetype_node_id": "at0117",
+                        "value": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2010-11-30T11:05:04.266+01:00"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Reaction mechanism"
+                        },
+                        "archetype_node_id": "at0058",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": "Dry cough"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Comment"
+                        },
+                        "archetype_node_id": "at0006",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "_type": "CLUSTER",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Reaction event"
+                        },
+                        "archetype_node_id": "at0009",
+                        "items": [
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Specific substance"
+                                },
+                                "archetype_node_id": "at0010",
+                                "value": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Lisinopril"
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Certainty"
+                                },
+                                "archetype_node_id": "at0021",
+                                "value": {
+                                    "_type": "DV_CODED_TEXT",
+                                    "value": "Confirmed",
+                                    "defining_code": {
+                                        "terminology_id": {
+                                            "_type": "TERMINOLOGY_ID",
+                                            "value": "local"
+                                        },
+                                        "code_string": "at0118"
+                                    }
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Manifestation"
+                                },
+                                "archetype_node_id": "at0011",
+                                "value": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Dry cough"
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Reaction description"
+                                },
+                                "archetype_node_id": "at0012",
+                                "value": {
+                                    "_type": "DV_TEXT",
+                                    "value": ""
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Onset of reaction"
+                                },
+                                "archetype_node_id": "at0027",
+                                "value": {
+                                    "_type": "DV_DATE_TIME",
+                                    "value": "2010-11-30T11:05:04.266+01:00"
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Severity of reaction"
+                                },
+                                "archetype_node_id": "at0089",
+                                "value": {
+                                    "_type": "DV_CODED_TEXT",
+                                    "value": "Mild",
+                                    "defining_code": {
+                                        "terminology_id": {
+                                            "_type": "TERMINOLOGY_ID",
+                                            "value": "local"
+                                        },
+                                        "code_string": "at0093"
+                                    }
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Initial exposure"
+                                },
+                                "archetype_node_id": "at0020",
+                                "value": {
+                                    "_type": "DV_DATE_TIME",
+                                    "value": "2010-11-25T11:05:04.375+01:00"
+                                }
+                            },
+                            {
+                                "_type": "ELEMENT",
+                                "name": {
+                                    "_type": "DV_TEXT",
+                                    "value": "Reaction comment"
+                                },
+                                "archetype_node_id": "at0032",
+                                "value": {
+                                    "_type": "DV_TEXT",
+                                    "value": ""
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_type": "EVALUATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Exclusion - global"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "_type": "ARCHETYPE_ID",
+                    "value": "openEHR-EHR-EVALUATION.exclusion_global.v1"
+                },
+                "template_id": {
+                    "_type": "TEMPLATE_ID",
+                    "value": "Allergy List"
+                },
+                "rm_version": "1.0.2"
+            },
+            "archetype_node_id": "openEHR-EHR-EVALUATION.exclusion_global.v1",
+            "language": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "it"
+            },
+            "encoding": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "UTF-8"
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "protocol": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Tree"
+                },
+                "archetype_node_id": "at0008",
+                "items": [
+
+                ]
+            },
+            "data": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Tree"
+                },
+                "archetype_node_id": "at0001",
+                "items": [
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Global exclusion of problems/diagnoses",
+                            "defining_code": {
+                                "terminology_id": {
+                                    "_type": "TERMINOLOGY_ID",
+                                    "value": "local"
+                                },
+                                "code_string": "at0003"
+                            }
+                        },
+                        "archetype_node_id": "at0002",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Comment"
+                        },
+                        "archetype_node_id": "at0011",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "_type": "EVALUATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Absence of Information"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "_type": "ARCHETYPE_ID",
+                    "value": "openEHR-EHR-EVALUATION.absence.v1"
+                },
+                "template_id": {
+                    "_type": "TEMPLATE_ID",
+                    "value": "Allergy List"
+                },
+                "rm_version": "1.0.2"
+            },
+            "archetype_node_id": "openEHR-EHR-EVALUATION.absence.v1",
+            "language": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "it"
+            },
+            "encoding": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "UTF-8"
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "protocol": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Tree"
+                },
+                "archetype_node_id": "at0003",
+                "items": [
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Last updated"
+                        },
+                        "archetype_node_id": "at0004",
+                        "value": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2021-11-30T11:05:04.578+01:00"
+                        }
+                    }
+                ]
+            },
+            "data": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Tree"
+                },
+                "archetype_node_id": "at0001",
+                "items": [
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Absence statement"
+                        },
+                        "archetype_node_id": "at0002",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Reason for absence"
+                        },
+                        "archetype_node_id": "at0005",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": ""
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
