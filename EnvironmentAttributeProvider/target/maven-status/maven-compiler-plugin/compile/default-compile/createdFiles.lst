@@ -1,0 +1,6 @@
+EnvironmentProviderFactory.class
+com\robertopoletti\envprovider\EnvironmentProviderDescriptor.class
+com\robertopoletti\envprovider\package-info.class
+EnvironmentProvider.class
+EnvironmentProviderFactory$1.class
+com\robertopoletti\envprovider\ObjectFactory.class
