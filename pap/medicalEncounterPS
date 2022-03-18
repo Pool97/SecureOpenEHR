@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PolicySet
+  xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+  PolicySetId="NormalScenario"
+  Version="1.39"
+  PolicyCombiningAlgId="urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit">
+  <Target />
+
+  <Policy
+    PolicyId="EncounterCreation"
+    Version="1.0"
+    RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+    <Target>
+      <AnyOf>
+        <AllOf>
+	  <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.encounter.v1</AttributeValue>
+
+            <AttributeDesignator
+              AttributeId = "archetype-id"
+              Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+              DataType = "http://www.w3.org/2001/XMLSchema#string"
+              MustBePresent = "true"
+            />
+          </Match>
+        </AllOf>
+      </AnyOf>
+    </Target>
+
+    <Rule RuleId="CreationRule" Effect="Permit">
+     <Condition>
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:and">
+
+        <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">receptionist</AttributeValue>
+
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+            <AttributeDesignator
+            AttributeId = "subject-role"
+            Category = "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "false"/>
+          </Apply>
+        </Apply>
+
+        <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">CREATE</AttributeValue>
+
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+            <AttributeDesignator
+              AttributeId = "urn:oasis:names:tc:xacml:1.0:action:action-id"
+              Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+              DataType = "http://www.w3.org/2001/XMLSchema#string"
+              MustBePresent = "false"/>
+          </Apply>
+        </Apply>
+
+        <Apply FunctionId = "urn:oasis:names:tc:xacml:2.0:function:time-in-range">
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:time-one-and-only">
+            <AttributeDesignator
+                AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-time"
+                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                DataType="http://www.w3.org/2001/XMLSchema#time"
+                MustBePresent="false"/>
+            </Apply>
+
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">08:00:00+01:00</AttributeValue>
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">16:00:00+01:00</AttributeValue>
+        </Apply>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <ObligationExpressions>
+    <ObligationExpression ObligationId = "receptionistObligation" FulfillOn = "Permit">
+      <AttributeAssignmentExpression AttributeId = "archetypes">
+        <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-bag">
+          <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-EVALUATION.reason_for_encounter.v1</AttributeValue>
+        </Apply>
+      </AttributeAssignmentExpression>
+    </ObligationExpression>
+  </ObligationExpressions>
+ </Policy>
+
+ <Policy
+   PolicyId="EncounterUpdateWithVitals"
+   Version="1.0"
+   RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+   <Target>
+     <AnyOf>
+       <AllOf>
+          <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+           <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.encounter.v1</AttributeValue>
+
+           <AttributeDesignator
+             AttributeId = "archetype-id"
+             Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+             DataType = "http://www.w3.org/2001/XMLSchema#string"
+             MustBePresent = "true"
+           />
+         </Match>
+       </AllOf>
+     </AnyOf>
+   </Target>
+
+   <Rule RuleId="NurseRule" Effect="Permit">
+    <Condition>
+     <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:and">
+
+       <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+         <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">nurse</AttributeValue>
+
+         <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+           <AttributeDesignator
+           AttributeId = "subject-role"
+           Category = "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+           DataType = "http://www.w3.org/2001/XMLSchema#string"
+           MustBePresent = "false"/>
+         </Apply>
+       </Apply>
+
+       <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+         <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">WRITE</AttributeValue>
+
+         <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+           <AttributeDesignator
+             AttributeId = "urn:oasis:names:tc:xacml:1.0:action:action-id"
+             Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+             DataType = "http://www.w3.org/2001/XMLSchema#string"
+             MustBePresent = "false"/>
+         </Apply>
+       </Apply>
+
+       <Apply FunctionId = "urn:oasis:names:tc:xacml:2.0:function:time-in-range">
+         <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:time-one-and-only">
+           <AttributeDesignator
+               AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-time"
+               Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+               DataType="http://www.w3.org/2001/XMLSchema#time"
+               MustBePresent="false"/>
+           </Apply>
+
+           <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">08:00:00+01:00</AttributeValue>
+           <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">16:00:00+01:00</AttributeValue>
+       </Apply>
+     </Apply>
+   </Condition>
+ </Rule>
+
+ <ObligationExpressions>
+   <ObligationExpression ObligationId = "nurseObligation" FulfillOn = "Permit">
+     <AttributeAssignmentExpression AttributeId = "archetype">
+       <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-bag">
+         <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-SECTION.vital_signs.v0</AttributeValue>
+       </Apply>
+     </AttributeAssignmentExpression>
+   </ObligationExpression>
+ </ObligationExpressions>
+</Policy>
+
+<Policy
+  PolicyId="EncounterUpdateWithDiagnosis"
+  Version="1.0"
+  RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+  <Target>
+    <AnyOf>
+      <AllOf>
+         <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.encounter.v1</AttributeValue>
+
+          <AttributeDesignator
+            AttributeId = "archetype-id"
+            Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "true"
+          />
+        </Match>
+      </AllOf>
+    </AnyOf>
+  </Target>
+
+  <Rule RuleId="InternistRule" Effect="Permit">
+   <Condition>
+    <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:and">
+
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+        <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">internist</AttributeValue>
+
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+          <AttributeDesignator
+          AttributeId = "subject-role"
+          Category = "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+          DataType = "http://www.w3.org/2001/XMLSchema#string"
+          MustBePresent = "false"/>
+        </Apply>
+      </Apply>
+
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+        <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">WRITE</AttributeValue>
+
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+          <AttributeDesignator
+            AttributeId = "urn:oasis:names:tc:xacml:1.0:action:action-id"
+            Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "false"/>
+        </Apply>
+      </Apply>
+
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:2.0:function:time-in-range">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:time-one-and-only">
+          <AttributeDesignator
+              AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-time"
+              Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+              DataType="http://www.w3.org/2001/XMLSchema#time"
+              MustBePresent="false"/>
+          </Apply>
+
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">08:00:00+01:00</AttributeValue>
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">16:00:00+01:00</AttributeValue>
+      </Apply>
+    </Apply>
+  </Condition>
+</Rule>
+
+<ObligationExpressions>
+  <ObligationExpression ObligationId = "internistObligation" FulfillOn = "Permit">
+    <AttributeAssignmentExpression AttributeId = "archetypes">
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-bag">
+        <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-EVALUATION.problem_diagnosis.v1</AttributeValue>
+      </Apply>
+    </AttributeAssignmentExpression>
+  </ObligationExpression>
+</ObligationExpressions>
+</Policy>
+
+<Policy
+  PolicyId="MedicalHistoryAccess"
+  Version="1.0"
+  RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+  <Description>
+    This policy let the internist access with a read privilege to the following
+    archetypes: medication list, allergy list, problem list, encounter, lab tests.
+
+    The PEP must check whether the physician who is accessing the medication List
+    is the one who are holding the appointment with the patient. To accomplish this,
+    the PEP must retrieve the Encounter composition and search the event context for this
+    information.
+  </Description>
+
+  <Target>
+    <AnyOf>
+      <AllOf>
+        <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.medication_list.v1</AttributeValue>
+
+          <AttributeDesignator
+            AttributeId = "archetype-id"
+            Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "true"
+          />
+        </Match>
+      </AllOf>
+      <AllOf>
+        <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.adverse_reaction_list.v1</AttributeValue>
+
+          <AttributeDesignator
+            AttributeId = "archetype-id"
+            Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "true"
+          />
+        </Match>
+      </AllOf>
+      <AllOf>
+        <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.problem_list.v1</AttributeValue>
+
+          <AttributeDesignator
+            AttributeId = "archetype-id"
+            Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "true"
+          />
+        </Match>
+      </AllOf>
+      <AllOf>
+        <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.encounter.v1</AttributeValue>
+
+          <AttributeDesignator
+            AttributeId = "archetype-id"
+            Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "true"
+          />
+        </Match>
+      </AllOf>
+    </AnyOf>
+  </Target>
+
+  <Rule RuleId="InternistRule" Effect="Permit">
+    <Description>
+      The subject who made the request must have an internist role, the action
+      must be READ, the request must be made during the fixed schedule and must
+      come from the internist computer.
+    </Description>
+   <Condition>
+    <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:and">
+
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+        <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">internist</AttributeValue>
+
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+          <AttributeDesignator
+          AttributeId = "subject-role"
+          Category = "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+          DataType = "http://www.w3.org/2001/XMLSchema#string"
+          MustBePresent = "false"/>
+        </Apply>
+      </Apply>
+
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+        <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">READ</AttributeValue>
+
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+          <AttributeDesignator
+            AttributeId = "urn:oasis:names:tc:xacml:1.0:action:action-id"
+            Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "false"/>
+        </Apply>
+      </Apply>
+
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:2.0:function:time-in-range">
+        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:time-one-and-only">
+          <AttributeDesignator
+              AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-time"
+              Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+              DataType="http://www.w3.org/2001/XMLSchema#time"
+              MustBePresent="false"/>
+          </Apply>
+
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">08:00:00+01:00</AttributeValue>
+          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">16:00:00+01:00</AttributeValue>
+      </Apply>
+    </Apply>
+  </Condition>
+</Rule>
+
+<ObligationExpressions>
+  <ObligationExpression ObligationId = "internistObligation" FulfillOn = "Permit">
+    <AttributeAssignmentExpression AttributeId = "database-attribute">
+        <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">composition_id</AttributeValue>
+    </AttributeAssignmentExpression>
+  </ObligationExpression>
+</ObligationExpressions>
+</Policy>
+
+<Policy
+  PolicyId = "AddNewMedication"
+  Version = "1.0"
+  RuleCombiningAlgId = "urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit">
+
+  <Target>
+     <AnyOf>
+       <AllOf>
+          <Match MatchId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+           <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-COMPOSITION.medication_list.v1</AttributeValue>
+
+           <AttributeDesignator
+             AttributeId = "archetype-id"
+             Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:resource"
+             DataType = "http://www.w3.org/2001/XMLSchema#string"
+             MustBePresent = "true"
+           />
+         </Match>
+       </AllOf>
+     </AnyOf>
+  </Target>
+
+  <Rule RuleId = "MedicationCreation" Effect = "Permit">
+    <Condition>
+      <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:and">
+        <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">internist</AttributeValue>
+
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+            <AttributeDesignator
+            AttributeId = "subject-role"
+            Category = "urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+            DataType = "http://www.w3.org/2001/XMLSchema#string"
+            MustBePresent = "false"/>
+          </Apply>
+        </Apply>
+
+        <Apply FunctionId = "urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <AttributeValue DataType = "http://www.w3.org/2001/XMLSchema#string">WRITE</AttributeValue>
+
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+            <AttributeDesignator
+              AttributeId = "urn:oasis:names:tc:xacml:1.0:action:action-id"
+              Category = "urn:oasis:names:tc:xacml:3.0:attribute-category:action"
+              DataType = "http://www.w3.org/2001/XMLSchema#string"
+              MustBePresent = "false"/>
+          </Apply>
+        </Apply>
+
+        <Apply FunctionId = "urn:oasis:names:tc:xacml:2.0:function:time-in-range">
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:time-one-and-only">
+            <AttributeDesignator
+                AttributeId="urn:oasis:names:tc:xacml:1.0:environment:current-time"
+                Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"
+                DataType="http://www.w3.org/2001/XMLSchema#time"
+                MustBePresent="false"/>
+            </Apply>
+
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">08:00:00+01:00</AttributeValue>
+            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#time">16:00:00+01:00</AttributeValue>
+        </Apply>
+      </Apply>
+    </Condition>
+  </Rule>
+
+  <ObligationExpressions>
+    <ObligationExpression ObligationId = "internistObligation" FulfillOn = "Permit">
+       <AttributeAssignmentExpression AttributeId = "database-attribute">
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">composition_id</AttributeValue>
+      </AttributeAssignmentExpression>
+    </ObligationExpression>
+
+    <ObligationExpression ObligationId = "CheckIntegrity" FulfillOn = "Permit">
+      <AttributeAssignmentExpression AttributeId = "archetype-id">
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">openEHR-EHR-INSTRUCTION.medication_order.v2</AttributeValue>
+      </AttributeAssignmentExpression>
+    </ObligationExpression>
+  </ObligationExpressions>
+</Policy>
+</PolicySet>
