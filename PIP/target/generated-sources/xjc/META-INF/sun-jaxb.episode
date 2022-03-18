@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Questo file è stato generato dall'architettura JavaTM per XML Binding (JAXB) Reference Implementation, v2.3.0 
+Vedere <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Qualsiasi modifica a questo file andrà persa durante la ricompilazione dello schema di origine. 
+Generato il: 2022.01.22 alle 10:03:22 AM CET 
+
+  -->
+      
+    <bindings xmlns:tns="http://robertopoletti.com/dbprovider" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.robertopoletti.dbprovider"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="~tns:AttributeProviderDescriptor">
+                  
+            <class ref="com.robertopoletti.dbprovider.AttributeProviderDescriptor"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

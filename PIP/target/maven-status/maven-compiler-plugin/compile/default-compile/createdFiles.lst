@@ -1,0 +1,7 @@
+com\robertopoletti\dbprovider\package-info.class
+DbAttributeProviderFactory$1.class
+DbAttributeProvider.class
+DAO.class
+com\robertopoletti\dbprovider\ObjectFactory.class
+com\robertopoletti\dbprovider\AttributeProviderDescriptor.class
+DbAttributeProviderFactory.class
