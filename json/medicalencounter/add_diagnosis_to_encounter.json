@@ -1,0 +1,212 @@
+{
+    "attributes" : {
+        "subject" : {
+           "random-id" : 
+            {
+                "type" : "string",
+                "value" : "uxsCmFCQhy6OFcrtGfqhT25wcNn-S808EcSIaZjxBFglGNd4k58crhhsSoO8-2bm",
+                "xacmlns" : "false"
+            }
+        },
+        "resource" : {
+            "archetype-id" : {
+                "type" : "string",
+                "value" : "encounter",
+                "xacmlns" : "false"
+            },
+            "ehr-id":
+              {
+                  "type" : "string",
+                  "value" : "a0977522-7a79-463c-9b0e-2bf42c33b7e0",
+                  "xacmlns" : "false"
+              }
+        },
+        "action" : {
+            "action-id" : {
+                "type" : "string",
+                "value" : "WRITE",
+                "xacmlns" : "true"   
+            }
+        },
+        "environment" : {}
+    },
+
+    "composition": {
+            "_type": "EVALUATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Problem/Diagnosis"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "_type": "ARCHETYPE_ID",
+                    "value": "openEHR-EHR-EVALUATION.problem_diagnosis.v1"
+                },
+                "template_id": {
+                    "_type": "TEMPLATE_ID",
+                    "value": "Encounter"
+                },
+                "rm_version": "1.0.2"
+            },
+            "archetype_node_id": "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+            "language": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "it"
+            },
+            "encoding": {
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "UTF-8"
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "protocol": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Tree"
+                },
+                "archetype_node_id": "at0032",
+                "items": [
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Last updated"
+                        },
+                        "archetype_node_id": "at0070",
+                        "value": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2021-11-18T01:19:54.505+01:00"
+                        }
+                    }
+                ]
+            },
+            "data": {
+                "_type": "ITEM_TREE",
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "structure"
+                },
+                "archetype_node_id": "at0001",
+                "items": [
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Problem/Diagnosis name"
+                        },
+                        "archetype_node_id": "at0002",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": "High blood pressure disorder"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Clinical description"
+                        },
+                        "archetype_node_id": "at0009",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": "The patient was diagnosed with 17 diseases, hypertension included. Although he already takes several medications for this disease, his blood is still around 10 points too high."
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Body site"
+                        },
+                        "archetype_node_id": "at0012",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": "System circulatory system structure"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Date/time of onset"
+                        },
+                        "archetype_node_id": "at0077",
+                        "value": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2021-11-15T12:20:54+01:00"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Date/time clinically recognised"
+                        },
+                        "archetype_node_id": "at0003",
+                        "value": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2021-11-18T14:19:54+01:00"
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Severity"
+                        },
+                        "archetype_node_id": "at0005",
+                        "value": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Moderate",
+                            "defining_code": {
+                                "terminology_id": {
+                                    "_type": "TERMINOLOGY_ID",
+                                    "value": "local"
+                                },
+                                "code_string": "at0047"
+                            }
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Course description"
+                        },
+                        "archetype_node_id": "at0072",
+                        "value": {
+                            "_type": "DV_TEXT",
+                            "value": "Patient is prescribed a 30-day prescription of metoprolol XL 200 mg daily. In the case of side effects, the medication will be changed. "
+                        }
+                    },
+                    {
+                        "_type": "ELEMENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Diagnostic certainty"
+                        },
+                        "archetype_node_id": "at0073",
+                        "value": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "Confirmed",
+                            "defining_code": {
+                                "terminology_id": {
+                                    "_type": "TERMINOLOGY_ID",
+                                    "value": "local"
+                                },
+                                "code_string": "at0074"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+}
