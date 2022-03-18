@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="openEHR/v1/Template">
+  <id>d843f69d-2d3a-42b9-92fc-80645190eeab</id>
+  <name>Encounter</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Encounter">
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.reason_for_encounter.v1" concept_name="Reason for encounter" path="/content" />
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.vital_signs.v0" concept_name="Vital signs" path="/content">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulse.v2" concept_name="Pulse/Heart beat" path="/items[at0001]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.level_of_exertion.v0" concept_name="Level of exertion" path="/data[at0002]/events[at0003]/state[at0012]/items[at1017]" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure.v2" concept_name="Blood pressure" path="/items[at0001]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1" concept_name="Anatomical location" path="/protocol[at0011]/items[at1057]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device.v1" concept_name="Medical device" path="/protocol[at0011]/items[at1025]" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_temperature.v2" concept_name="Body temperature" path="/items[at0001]" />
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.respiration.v2" concept_name="Respiration" path="/items[at0001]" />
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" path="/items[at0002]" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/content">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1" concept_name="Anatomical location" path="/data[at0001]/items[at0039]" />
+    </Content>
+    <Context />
+  </definition>
+</template>
